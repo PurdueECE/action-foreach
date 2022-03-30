@@ -1,9 +1,9 @@
 # Action Foreach
-This action run another action on a list of repos
+This action will run another action on a list of repos
 
 # Usage
 ```yaml
-- uses: PurdueECE/action-foreach@main
+- uses: PurdueECE/action-foreach@master
   id: run_repos
   with:
     # Comma-separated list of repos
