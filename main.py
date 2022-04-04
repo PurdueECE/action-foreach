@@ -1,31 +1,33 @@
 import datetime
 import os
+import shutil
 
-import git
+from git import Repo, Git
 from actions_toolkit import core
 from github import Github, Repository, UnknownObjectException
 
 
 def run_foreach(args):
-    # Set up env
+    # env init
     monorepo_name = 'action_foreach_run'
-    workdir = os.environ.get('GITHUB_WORKSPACE', '/usr/src/app')
-    workdir += f'/{monorepo_name}/'
-    g = Github(args['token'])
-    org = g.get_organization(os.environ["GITHUB_REPOSITORY_OWNER"])
-    # Create monorepo contents
+    workdir = os.environ.get('GITHUB_WORKSPACE', '/usr/src/app') + f'/{monorepo_name}'
+    # GitHub init
+    github = Github(args['token'])
+    org = github.get_organization(os.environ["GITHUB_REPOSITORY_OWNER"])
+    # Create monorepo
     for repo_name in args['repos'].split(','):
         # Clone the repo
-        repo = g.get_repo(repo_name)
+        gh_repo = github.get_repo(repo_name)
         repo_dir = f"{workdir}/{repo_name}"
-        git.Repo.clone_from(repo.clone_url, repo_dir, )
+        Repo.clone_from(gh_repo.clone_url, repo_dir)
+        shutil.rmtree(f'{repo_dir}/.git')
         # Copy action contents
         workflow_path = f'{repo_dir}/.github/workflows'
         os.makedirs(workflow_path, exist_ok = True)
         with open(f'{workflow_path}/workflow.yml', "w") as f:
             f.write(f"name: Foreach Run - {repo_name}\n")
             f.write(f"on: [workflow_dispatch]\n")
-            f.write(f"env:\n\trepo: {repo_name}\n")
+            f.write(f"env:\n    repo: {repo_name}\n")
             f.write(f"{args['loop']}\n")
     # Create remote if it doesn't exist
     try:
@@ -34,11 +36,12 @@ def run_foreach(args):
         if e.status == 404:
             remote: Repository.Repository = org.create_repo(monorepo_name)
     # Commit the repo
-    os.system(f'cd {workdir}')
-    os.system(f'git init')
-    os.system(f'git commit -am "initial files"')
-    os.system(f'git remote add origin {remote.git_url}')
-    os.system(f'git push --set-upstream origin master')
+    monorepo = Repo.init(workdir)
+    monorepo.create_remote('origin', remote.clone_url)
+    monorepo.git.add(all=True)
+    monorepo.index.commit('initial files')
+    monorepo.git.push('--set-upstream', monorepo.remote().name, 'master', '--force')
+    shutil.rmtree(workdir)
     # Dispatch the workflow event
     workflows = remote.get_workflows()
     remaining = workflows.totalCount; idx = 0
