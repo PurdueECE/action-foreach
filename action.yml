@@ -3,10 +3,10 @@ description: "Run GitHub action on a list of repos."
 author: "Purdue ECE"
 inputs:
   repos:
-    description: "List of repos to run action for"
+    description: "List of repos to run action for."
     required: true
-  foreach:
-    description: "Action to run on each repo"
+  loop:
+    description: "Action YAML file contents to run on each repo."
     required: true
 runs:
   using: "docker"

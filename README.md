@@ -1,5 +1,5 @@
 # Action Foreach
-This action will run another action on a list of repos
+This action will run another action on a list of repos.
 
 # Usage
 ```yaml
@@ -9,8 +9,8 @@ This action will run another action on a list of repos
     # Comma-separated list of repos
     repos: PurdueECE364/prelabs-1,PurdueECE364/prelabs-2
     # Personal access token
-    pat: ${{ secrets.GITHUB_TOKEN }}
-    # action
+    token: ${{ github.token }}
+    # Action to run
     foreach: PurdueECE/action-dircheck
 ```
 

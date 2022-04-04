@@ -1,2 +1,2 @@
 PyGithub == 1.55
-argparse == 1.4.0
+GitPython == 3.1.27
