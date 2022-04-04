@@ -7,11 +7,10 @@ from unittest import mock
     "GITHUB_REPOSITORY_OWNER": "PurdueECE",
     "INPUT_REPOS": "PurdueECE/action-foreach",
     "INPUT_LOOP": """
-jobs:
-    print:
-        runs-on: ubuntu-latest
-            steps:
-                - run: "echo repo name: ${{ github.repository }}"
+            print:
+              runs-on: ubuntu-latest
+              steps:
+                - run: "echo repo: ${{ github.repository }}"
 """
     })
 def test_self():

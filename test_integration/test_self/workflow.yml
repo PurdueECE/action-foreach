@@ -18,8 +18,7 @@ jobs:
         with:
           repos: ${{ steps.get_repos.outputs.repos }}
           loop:
-            jobs:
-              print:
-                runs-on: ubuntu-latest
-                steps:
-                  - run: "echo repo: ${{ github.repository }}"
+            print:
+              runs-on: ubuntu-latest
+              steps:
+                - run: "echo repo: ${{ github.repository }}"
