@@ -2,9 +2,9 @@ import datetime
 import os
 import shutil
 
-from git import Repo
 from actions_toolkit import core
-from github import Github, Repository, UnknownObjectException
+from git import Repo
+from github import Github, UnknownObjectException
 
 
 def run_foreach(args):
@@ -36,7 +36,7 @@ def run_foreach(args):
         repo_dir = f"{work_dir}/{name}"
         if os.path.exists(repo_dir):
             shutil.rmtree(repo_dir)
-        Repo.clone_from(f'https://{args["token"]}:x-oauth-basic@github.com/{full_name}.git', repo_dir)
+        Repo.clone_from(f'https://{args["token"]}:x-oauth-basic@github.com/{owner}/{name}.git', repo_dir)
         shutil.rmtree(f'{repo_dir}/.git')
         # Copy action job
         with open(f'{workflow_path}/workflow.yml', "a+") as f:
