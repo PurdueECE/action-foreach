@@ -1,4 +1,4 @@
-name: Print Test
+name: Self Test
 on: [workflow_dispatch]
 
 jobs:
