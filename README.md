@@ -10,28 +10,12 @@ This action will run a specified job on a list of repos. It accomplishes this by
     repos: org/repo-1,org/repo-2,org/repo-3
     # Personal access token
     token: ${{ github.token }}
-    # Job to run in each repo
-    job:
-      runs-on: ubuntu-latest
-      steps:
-        # Prints the name of each repo
-        - run: "echo repo: ${{ github.repository }}"
-```
-
-The generated workflow file will look like the following:
-```yaml
+    # Action to run in each repo
+    action:
 name: Foreach Action
 on: [push]
 jobs:
-  org-repo1:
-    runs-on: ubuntu-latest
-    steps:
-      - run: "echo repo: ${{ github.repository }}"
-  org-repo2:
-    runs-on: ubuntu-latest
-    steps:
-      - run: "echo repo: ${{ github.repository }}"
-  org-repo3:
+  print:
     runs-on: ubuntu-latest
     steps:
       - run: "echo repo: ${{ github.repository }}"
