@@ -10,7 +10,7 @@ from github import Github, Repository, UnknownObjectException
 def run_foreach(args):
     # env init
     monorepo_name = 'action_foreach_run'
-    workdir = os.environ.get('GITHUB_WORKSPACE', '/usr/src/app') + f'/{monorepo_name}'
+    work_dir = os.environ.get('GITHUB_WORKSPACE', '/usr/src/app') + f'/{monorepo_name}'
     # GitHub init
     github = Github(args['token'])
     org = github.get_organization(os.environ["GITHUB_REPOSITORY_OWNER"])
@@ -18,31 +18,32 @@ def run_foreach(args):
         remote = org.get_repo(monorepo_name)
     except UnknownObjectException as e:
         if e.status == 404:
-            remote: Repository.Repository = org.create_repo(monorepo_name)
+            remote = org.create_repo(monorepo_name)
     # Clone monorepo
-    if os.path.exists(workdir):
-        shutil.rmtree(workdir)
-    monorepo = Repo.clone_from(remote.clone_url, workdir)
-    workflow_path = f'{workdir}/.github/workflows'
+    if os.path.exists(work_dir):
+        shutil.rmtree(work_dir)
+    monorepo = Repo.clone_from(remote.clone_url, work_dir)
+    workflow_path = f'{work_dir}/.github/workflows'
     os.makedirs(workflow_path, exist_ok = True)
     with open(f'{workflow_path}/workflow.yml', "w") as f:
-        f.write(f"name: Foreach Actions\n")
+        f.write(f"name: Foreach Action\n")
         f.write(f"on: [push]\n")
         f.write(f"jobs:\n")
     # Fill in monorepo
-    for repo_name in args['repos'].split(','):
+    for full_name in args['repos'].split(','):
+        owner, name = full_name.split('/')
         # Clone each repo
-        gh_repo = github.get_repo(repo_name)
-        repo_dir = f"{workdir}/{repo_name}"
+        repo_dir = f"{work_dir}/{name}"
         if os.path.exists(repo_dir):
             shutil.rmtree(repo_dir)
-        Repo.clone_from(gh_repo.clone_url, repo_dir)
+        Repo.clone_from(f'https://{args["token"]}:x-oauth-basic@github.com/{full_name}.git', repo_dir)
         shutil.rmtree(f'{repo_dir}/.git')
         # Copy action job
         with open(f'{workflow_path}/workflow.yml', "a+") as f:
-            f.write(args['loop'])
+            f.write(f'  action-{name}:\n')
+            f.write(f'{args["loop"]}\n')
     # Commit to remote
-    monorepo.git.add(all=True)
+    monorepo.git.add('.')
     monorepo.index.commit(f'{datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
     monorepo.git.push('--set-upstream', monorepo.remote().name, 'master', '--force')
 
