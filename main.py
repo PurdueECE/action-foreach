@@ -30,7 +30,7 @@ def run_foreach():
     # Commit to remote
     monorepo = Repo('.')
     monorepo.git.add('.')
-    monorepo.index.commit(f'{datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
+    monorepo.index.commit(f'{os.environ["GITHUB_ACTION"]} - {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
     monorepo.git.push('--set-upstream', monorepo.remote().name, 'master', '--force')
 
 def set_default_env():
