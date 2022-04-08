@@ -16,5 +16,5 @@ jobs:
       - run: "echo repo: ${{ env.REPO_DIR }}"
 """
     })
-def test_self():
+def test_print():
   main()
