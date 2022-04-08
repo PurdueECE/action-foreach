@@ -7,7 +7,7 @@ from unittest import mock
     "INPUT_MONOREPO_WORKDIR": "foreach_runs",
     "INPUT_REPOS": "PurdueECE364/prelabs-moffatw",#,PurdueECE364/prelabs-bbelli,PurdueECE364/prelabs-SOGIST1",
     "INPUT_ACTION": """
-name: Pylint - ${{ env.REPO }}
+name: Pylint Test
 on: [push]
 jobs:
   pylint:

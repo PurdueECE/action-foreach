@@ -1,7 +1,7 @@
 env:
   REPO: PurdueECE364/prelabs-moffatw
   REPO_DIR: foreach_runs/PurdueECE364-prelabs-moffatw
-name: Pylint - ${{ env.REPO }}
+name: Pylint Test
 on: [push]
 jobs:
   pylint:
