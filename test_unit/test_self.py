@@ -6,11 +6,15 @@ from unittest import mock
     "GITHUB_WORKSPACE": "./test_unit/data",
     "GITHUB_REPOSITORY_OWNER": "PurdueECE",
     "INPUT_REPOS": "PurdueECE/action-foreach",
-    "INPUT_LOOP": """
+    "INPUT_ACTION": """
+name: Print Repo - ${{ env.REPO_DIR }}
+on: [push]
+jobs:
+  print:
     runs-on: ubuntu-latest
     steps:
-      - run: "echo repo: ${{ github.repository }}"
+      - run: "echo repo: ${{ env.REPO_DIR }}"
 """
     })
 def test_self():
-    main()
+  main()
