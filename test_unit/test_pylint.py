@@ -3,11 +3,11 @@ from main import main
 from unittest import mock
 
 @mock.patch.dict(os.environ, {
-    "GITHUB_WORKSPACE": "./test_unit/data",
-    "GITHUB_REPOSITORY_OWNER": "PurdueECE",
+    "INPUT_MONOREPO": "PurdueECE/action-foreach",
+    "INPUT_MONOREPO_WORKDIR": "foreach_runs",
     "INPUT_REPOS": "PurdueECE364/prelabs-moffatw",#,PurdueECE364/prelabs-bbelli,PurdueECE364/prelabs-SOGIST1",
     "INPUT_ACTION": """
-name: Pylint - ${{ env.REPO_DIR }}
+name: Pylint - ${{ env.REPO }}
 on: [push]
 jobs:
   pylint:
