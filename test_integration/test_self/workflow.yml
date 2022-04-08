@@ -13,8 +13,7 @@ jobs:
           created_after: '2022-01-01T00:00:00'
           created_before: '2022-06-01T00:00:00'
       - uses: actions/checkout@v3
-      - id: looper
-        uses: ./
+      - uses: ./
         with:
           repos: ${{ steps.get_repos.outputs.repos }}
           loop:

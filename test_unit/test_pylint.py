@@ -6,7 +6,7 @@ from unittest import mock
   "GITHUB_ACTION": "Foreach Pylint",
   "INPUT_WORKDIR": "foreach_runs",
   "INPUT_REPOS": "PurdueECE364/prelabs-moffatw",#,PurdueECE364/prelabs-bbelli,PurdueECE364/prelabs-SOGIST1",
-  "INPUT_ACTION": """
+  "INPUT_WORKFLOW": """
 name: Pylint Test
 on: [push]
 jobs:
