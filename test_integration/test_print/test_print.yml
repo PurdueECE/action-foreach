@@ -1,4 +1,4 @@
-name: Self Test
+name: Foreach - Print Test
 on: [workflow_dispatch]
 
 jobs:
@@ -16,8 +16,12 @@ jobs:
       - uses: ./
         with:
           repos: ${{ steps.get_repos.outputs.repos }}
-          loop:
-            print:
-              runs-on: ubuntu-latest
-              steps:
-                - run: "echo repo: ${{ github.repository }}"
+          workdir: "foreach_runs"
+          workflow:
+name: Print Test
+on: [push]
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - run: "echo repo: ${{ env.REPO_DIR }}"
