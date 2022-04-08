@@ -5,8 +5,6 @@ import shutil
 from actions_toolkit import core
 from git import Repo
 
-# TODO: add catch for if GITHUB_EVENT is push
-
 def run_foreach():
     # Set up workflows path
     wf_dir = f'.github/workflows'
@@ -34,8 +32,13 @@ def run_foreach():
     monorepo.index.commit(f'{os.environ["GITHUB_ACTION"]} - {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
     monorepo.git.push('--set-upstream', monorepo.remote().name, 'master', '--force')
 
+def env_setup():
+    if os.environ.get('GITHUB_EVENT', '') == 'push':
+        raise Exception('Refusing to run on push event to avoid recursive GH action runs.')
+
 def main():
     try:
+        env_setup()
         run_foreach()
     except Exception as e:
         core.set_failed(str(e))
