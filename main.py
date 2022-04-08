@@ -5,6 +5,7 @@ import shutil
 from actions_toolkit import core
 from git import Repo
 
+# TODO: add catch for if GITHUB_EVENT is push
 
 def run_foreach():
     # Set up workflows path

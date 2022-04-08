@@ -3,11 +3,11 @@ from main import main
 from unittest import mock
 
 @mock.patch.dict(os.environ, {
-    "GITHUB_WORKSPACE": "./test_unit/data",
-    "GITHUB_REPOSITORY_OWNER": "PurdueECE",
-    "INPUT_REPOS": "PurdueECE/action-foreach",
-    "INPUT_ACTION": """
-name: Print Repo - ${{ env.REPO_DIR }}
+  "GITHUB_ACTION": "Foreach Print",
+  "INPUT_WORKDIR": "foreach_runs",
+  "INPUT_REPOS": "PurdueECE364/prelabs-moffatw",#,PurdueECE364/prelabs-bbelli,PurdueECE364/prelabs-SOGIST1",
+  "INPUT_ACTION": """
+name: Print Test
 on: [push]
 jobs:
   print:

@@ -10,7 +10,7 @@ from unittest import mock
 name: Dircheck Test
 on: [push]
 jobs:
-  pylint:
+  dircheck:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
