@@ -10,12 +10,12 @@ def run_foreach():
     # Set up workflows path
     wf_dir = f'.github/workflows'
     os.makedirs(wf_dir, exist_ok = True)
-    # Clone each repo into monorepo
-    mr_workdir = core.get_input("monorepo_workdir")
+    # Clone each repo
+    workdir = core.get_input("workdir")
     for full_name in core.get_input('repos').split(','):
         owner, name = full_name.split('/')
         repo_prefix = f'{owner}-{name}'
-        repo_dir = f'{mr_workdir}/{repo_prefix}'
+        repo_dir = f'{workdir}/{repo_prefix}'
         # Create workflow file
         with open(f'{wf_dir}/{repo_prefix}-workflow.yml', "w") as f:
             f.write(f'env:\n')
