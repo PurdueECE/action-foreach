@@ -2,10 +2,16 @@ name: "action-foreach"
 description: "Run GitHub action on a list of repos."
 author: "Purdue ECE"
 inputs:
+  monorepo:
+    description: "Repo to clone all provided repos into."
+    default: ${{ github.repository }}
+  monorepo_workdir:
+    description: "Working directory under monorepo to clone repos to."
+    default: "."
   repos:
     description: "List of repos to run action for."
     required: true
-  loop:
+  action:
     description: "Action YAML file contents to run on each repo."
     required: true
 runs:
