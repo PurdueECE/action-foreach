@@ -8,8 +8,8 @@ inputs:
   repos:
     description: "List of repos to run action for."
     required: true
-  action:
-    description: "Action YAML file contents to run on each repo."
+  workflow:
+    description: "Workflow YAML file contents to run on each repo."
     required: true
 runs:
   using: "docker"
