@@ -17,7 +17,7 @@ def run_foreach():
         repo_prefix = f'{owner}-{name}'
         repo_dir = f'{workdir}/{repo_prefix}'
         # Create workflow file
-        with open(f'{wf_dir}/{repo_prefix}-workflow.yml', "w") as f:
+        with open(f'{wf_dir}/action-foreach-{repo_prefix}-workflow.yml', "w") as f:
             f.write(f'env:\n')
             f.write(f'  REPO: {full_name}\n')
             f.write(f'  REPO_DIR: {repo_dir}\n')
@@ -33,13 +33,8 @@ def run_foreach():
     monorepo.index.commit(f'{os.environ["GITHUB_ACTION"]} - {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
     monorepo.git.push('--set-upstream', monorepo.remote().name, 'master', '--force')
 
-def set_default_env():
-    #os.environ.setdefault('INPUT_MONOREPO', os.environ['GITHUB_REPOSITORY'])
-    pass
-
 def main():
     try:
-        set_default_env()
         run_foreach()
     except Exception as e:
         core.set_failed(str(e))

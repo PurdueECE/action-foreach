@@ -1,6 +1,8 @@
 # Action Foreach
 This action will run a specified job on a list of repos. It accomplishes this by cloning the specified repos into a single repo and creating a workflow file where a specified job is created for each repo in the list.
 
+IMPORTANT: this action will push a new commit with workflow files for each repo. If the workflow that calls foreach is triggered by this new commit, an infinite recursion will occur. Therefore, please ensure that the workflow that calls this action is not triggered by the new commit. It is recommended to set the trigger to `workflow_dispatch` or `schedule`. Please see the [documentation](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows) for more details.
+
 # Usage
 ```yaml
 - uses: PurdueECE/action-foreach@master
@@ -15,7 +17,7 @@ This action will run a specified job on a list of repos. It accomplishes this by
     # Action YAML file contents to run on each repo.
     action:
 name: Pylint - ${{ env.REPO }}
-on: [push]
+on: [workflow_dispatch]
 jobs:
   pylint:
     runs-on: ubuntu-latest
