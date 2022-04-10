@@ -6,15 +6,17 @@ from actions_toolkit import core
 from git import Repo
 
 def run_foreach():
-    # Set up workflows path
+    # Set up paths
     wf_dir = f'.github/workflows'
     os.makedirs(wf_dir, exist_ok = True)
-    # Clone each repo
     workdir = core.get_input("workdir")
+    os.makedirs(workdir, exist_ok = True)
+    # Clone each repo
     for full_name in core.get_input('repos').split(','):
         owner, name = full_name.split('/')
         repo_prefix = f'{owner}-{name}'
-        repo_dir = f'{workdir}/{repo_prefix}'
+        repo_dir = f'{workdir}/run-{repo_prefix}-{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}'
+        os.makedirs(repo_dir, exist_ok = True)
         # Create workflow file
         with open(f'{wf_dir}/action-foreach-{repo_prefix}-workflow.yml', "w") as f:
             f.write(f'env:\n')
@@ -34,7 +36,7 @@ def run_foreach():
 
 def env_setup():
     if os.environ.get('GITHUB_EVENT', '') == 'push':
-        raise Exception('Refusing to run on push event to avoid recursive GH action runs.')
+        raise Exception('Refusing to run on push event to avoid recursive runs.')
 
 def main():
     try:

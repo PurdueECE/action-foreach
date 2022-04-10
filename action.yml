@@ -4,7 +4,7 @@ author: "Purdue ECE"
 inputs:
   workdir:
     description: "Working directory to clone repos to."
-    default: "action-foreach-repos"
+    default: "action-foreach-runs"
   repos:
     description: "List of repos to run action for."
     required: true
