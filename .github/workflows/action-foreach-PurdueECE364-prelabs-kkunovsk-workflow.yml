@@ -1,17 +1,15 @@
-name: Pylint Test - PurdueECE364-prelabs-kkunovsk
+name: Print Test - PurdueECE364-prelabs-kkunovsk
 on:
   workflow_run:
-      workflows: [Pylint Test]
+      workflows: [Print Test]
 env:
   REPO: PurdueECE364/prelabs-kkunovsk
+  REPO_DIR: test_data/run-20220411_174418/PurdueECE364-prelabs-kkunovsk
 jobs:
   print:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          repository: $REPO
-          token: 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
-      - uses: PurdueECE/action-pylint@main
-        with:
-          path: Prelab06
+        repository: $REPO
+        token: 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
+      - run: echo "repo = $GITHUB_REPOSITORY"

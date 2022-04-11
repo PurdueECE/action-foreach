@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="//maxcnd.bootstrapcdn.com/bootstrap/4.00/js/bootstrap.min.js"></script>
+		<title>Register</title>
+	</head>
+	<body>
+		<p>Profile:</p>
+		<form action="/<%= code %>/create" method="GET">
+			<input type="submit" class="fadeIn second" value="create">
+		</form>
+		<table>
+			<% for(var i=0; i < data.length; i++) { %>
+				<tr>
+					<td>title: <%= data[(data.length - 1) - i].title%></td>
+					<td>, content: <%= data[(data.length - 1) - i].content%></td>
+					<td>, time: <%= data[(data.length - 1) - i].timestamp%></td>
+					<td>, vote: <%= data[(data.length - 1) - i].vote%></td>
+					<br>
+				</tr>
+			<% } %>
+		</table>
+	</body>
+</html>

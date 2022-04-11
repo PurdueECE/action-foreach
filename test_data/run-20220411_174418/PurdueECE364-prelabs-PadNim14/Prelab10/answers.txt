@@ -1,0 +1,6 @@
+Cloud Storage Addresses:
+https://console.cloud.google.com/storage/browser/artifacts.prelab10-345320.appspot.com;tab=objects?forceOnBucketsSortingFiltering=false&project=prelab10-345320
+https://console.cloud.google.com/storage/browser/prelab10-345320_cloudbuild;tab=objects?forceOnBucketsSortingFiltering=false&project=prelab10-345320
+
+Deployment Link
+https://nimal-kktzsum4hq-ue.a.run.app/register
