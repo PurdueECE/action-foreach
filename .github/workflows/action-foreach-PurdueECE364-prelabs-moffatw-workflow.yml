@@ -1,7 +1,7 @@
-name: Foreach Print - PurdueECE364-prelabs-moffatw
+name: Print Test - PurdueECE364-prelabs-moffatw
 on:
   workflow_run:
-      workflows: [Foreach Print]
+      workflows: [Print Test]
 env:
   REPO: PurdueECE364/prelabs-moffatw
 jobs:
