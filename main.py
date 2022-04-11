@@ -32,7 +32,7 @@ def run_foreach():
     monorepo.git.add(workdir)
     monorepo.git.add(wf_dir)
     monorepo.index.commit(f'{core.get_input("token")} - {datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")}')
-    monorepo.git.push('--set-upstream', monorepo.remote().name, 'master', '--force')
+    monorepo.git.push('--set-upstream', monorepo.remote().name, os.environ['GITHUB_REF_NAME'], '--force')
 
 def env_setup():
     if os.environ.get('GITHUB_EVENT', '') == 'push':

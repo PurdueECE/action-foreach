@@ -4,6 +4,7 @@ from unittest import mock
 
 @mock.patch.dict(os.environ, {
   "GITHUB_ACTION": "Foreach Pylint",
+  "GITHUB_REF_NAME": "main",
   "INPUT_WORKDIR": "test_data",
   "INPUT_REPOS": "PurdueECE364/prelabs-moffatw",#,PurdueECE364/prelabs-bbelli,PurdueECE364/prelabs-SOGIST1",
   "INPUT_WORKFLOW": """
