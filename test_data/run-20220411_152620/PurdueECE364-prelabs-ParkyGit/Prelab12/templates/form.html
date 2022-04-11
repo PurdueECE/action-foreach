@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+ $(document).ready(function() { 
+                $("form").submit(function() { 
+                    $("form").post( "/form_submit", { fname: "John", lname: "Doe"} );
+                }); 
+            }); 
+</script>
+</head>
+<body>
+
+<h1>Destination Finder</h1>
+
+<form action="/form_submit" method="POST" id = "form">
+  <label for="fname">Origin:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname">Destination: </label>
+  <input type="text" id="lname" name="lname"><br><br>
+  <input type="submit" value="Find directions and nearby food options">
+</form>
+
+
+</body>
+</html>

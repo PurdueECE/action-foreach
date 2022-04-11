@@ -1,12 +1,12 @@
-env:
-  REPO: PurdueECE364/prelabs-christinefang
-  REPO_DIR: test_data/run-20220411_145722/PurdueECE364-prelabs-christinefang
-name: Print Test
+name: Foreach - Print Test - PurdueECE364-prelabs-christinefang
 on:
   workflow_run:
-    workflows: [Foreach - Print Test]
+      workflows: [Foreach - Print Test]
+env:
+  REPO: PurdueECE364/prelabs-christinefang
+  REPO_DIR: test_data/run-20220411_152620/PurdueECE364-prelabs-christinefang
 jobs:
-  print:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "repo = $REPO"
+print:
+  runs-on: ubuntu-latest
+  steps:
+    - run: echo "repo = $REPO"
