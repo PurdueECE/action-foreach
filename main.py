@@ -9,13 +9,12 @@ def run_foreach():
     # Set up paths
     wf_dir = f'.github/workflows'
     os.makedirs(wf_dir, exist_ok = True)
-    workdir = core.get_input("workdir")
-    os.makedirs(workdir, exist_ok = True)
+    workdir = f'{core.get_input("workdir")}/run-{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}'
     # Clone each repo
     for full_name in core.get_input('repos').split(','):
         owner, name = full_name.split('/')
         repo_prefix = f'{owner}-{name}'
-        repo_dir = f'{workdir}/run-{repo_prefix}-{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}'
+        repo_dir = f'{workdir}/{repo_prefix}'
         os.makedirs(repo_dir, exist_ok = True)
         # Create workflow file
         with open(f'{wf_dir}/action-foreach-{repo_prefix}-workflow.yml', "w") as f:
@@ -30,7 +29,8 @@ def run_foreach():
         shutil.rmtree(f'{repo_dir}/.git') # deinit as git repo so it is pushed to GH properly
     # Commit to remote
     monorepo = Repo('.')
-    monorepo.git.add('.')
+    monorepo.git.add(workdir)
+    monorepo.git.add(wf_dir)
     monorepo.index.commit(f'{os.environ["GITHUB_ACTION"]} - {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
     monorepo.git.push('--set-upstream', monorepo.remote().name, 'master', '--force')
 
