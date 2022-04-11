@@ -17,7 +17,7 @@ def run_foreach():
         repo_dir = f'{workdir}/{repo_prefix}'
         os.makedirs(repo_dir, exist_ok = True)
         # Create workflow file
-        with open(f'{wf_dir}/action-foreach-{repo_prefix}-workflow.yml', "w") as f:
+        with open(f'{wf_dir}/{os.environ["GITHUB_WORKFLOW"].replace(" ", "-")}-{repo_prefix}-workflow.yml', "w") as f:
             f.write(f'name: {os.environ["GITHUB_WORKFLOW"]} - {repo_prefix}\n')
             f.write(f'on:\n')
             f.write(f'  workflow_run:\n')
