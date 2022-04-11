@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+                    $("login_form").submit(function() {
+                        $("login_form").post("/create_success");
+                    });
+    });
+</script>
+</head>
+
+<body>
+    <form action="/create_success" method="POST" id="login_form">
+        <label for="username">Username: </label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password: </label>
+        <input type="text" id="password" name="password"><br><br>
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>

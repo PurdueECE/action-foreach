@@ -1,0 +1,5 @@
+For some of the examples, we can sanatize by doing string manipulation. Some common injections are adding characters such as '-- which treats the rest of the line as comments. We can replace this with space and use another sybmol to add to the table so it does not mess with the rest of the table. 
+The best way is for input validation. If one the more common phrases such as 'DROP TABLE' or some other tablee command is used as the input, we can just not accept this to be an acceptable input to use. The user can then create a new input if needed, but the attack will be prevented. 
+Another way is the parametrized queries, where we can precompile the SQL statement so the database can differentiate between the input and the table.
+Storing procedures means to group multiple SQL statements together. ALl subsequent procedures will be automatically parametrized so it will not impact the data. 
+It is also very important to not mess with the administrative privlages. 
