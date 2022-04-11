@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>About</title>
+  </head>
+  <body>
+      <p>Title: <%=Title %></p> <br>
+        <p> Content: <%= Content %></p> <br>
+        <p>Vote Count: <%= Score %></p>
+        <form action="/profile/<%=Name%>" method="GET">
+          <button>Redirect!</button>
+        </form>
+  </body>
+</html>

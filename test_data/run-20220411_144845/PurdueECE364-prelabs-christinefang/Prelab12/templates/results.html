@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  width: 33.33%;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>{{origin}} to {{destination}}</h2>
+<p>Total Distance: {{dist}}</p>
+
+<table>
+    <tr>
+        <th>Directions</th>
+        <th>Distance</th>
+      </tr>
+
+{% for i in html_inst %}
+  <tr>
+    <td>{{i[0]}}</td>
+    <td>{{i[1]}}</td>
+  </tr>
+{% endfor %}
+</table>
+<p></p>
+<table>
+    <tr>
+        <th>Nearby Places</th>
+        <th>Rating</th>
+      </tr>
+
+{% for i in name %}
+  <tr>
+    <td>{{i[0]}}</td>
+    <td>{{i[1]}}</td>
+  </tr>
+{% endfor %}
+</table>
+  <a href="/download" target="blank"><button class='btn btn-default'>Download TSV!</button></a>
+
+</body>
+</html>

@@ -1,10 +1,10 @@
 env:
   REPO: PurdueECE364/prelabs-AedanFrazier
-  REPO_DIR: test_data/run-20220411_144219/PurdueECE364-prelabs-AedanFrazier
+  REPO_DIR: test_data/run-20220411_144845/PurdueECE364-prelabs-AedanFrazier
 name: Print Test
 on:
   workflow_run:
-    workflows: [Foreach - Print Test]
+    workflows: [__self]
 jobs:
   print:
     runs-on: ubuntu-latest
