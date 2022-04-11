@@ -1,0 +1,19 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <h2>Create</h2>
+    <br>
+    <form action= "/<%=id%>/posts" method="POST">
+        <input type="title" id="title" class="fadeIn second" name="title" placeholder="title"><br>
+        <input type="content" id="content" class="fadeIn third" name="content" placeholder="content"><br>
+        <!-- <input type="vote-counter" id="vote-counter" class="fadeIn fourth" name="vote-counter" placeholder="vote-counter"><br> -->
+        <input type="submit" class="fadeIn fourth" value="Create Post!">
+      </form>
+    <!-- <button>Create Post!</button> -->
+  </div>
+</div>

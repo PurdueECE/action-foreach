@@ -1,0 +1,6 @@
+# ignoring build folder and its contents
+build/
+
+# ignoring any text files
+
+*.txt

