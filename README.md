@@ -40,9 +40,4 @@ The `REPO_DIR` environment variable is set in each repo's workflow file to be th
 
 
 # Testing
-## Unit
 Unit tests are in the `test_unit/` directory. They can be run with `pytest`.
-## Integration
-Integration test cases are in the `test_integration/` directory.
-To test, you must install the [`act`](https://github.com/nektos/act) command line tool.
-After install, run `make test`.
