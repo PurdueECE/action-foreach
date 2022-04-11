@@ -22,10 +22,10 @@ jobs:
           repos: PurdueECE364/prelabs-moffatw
           workdir: test_data
           workflow: >
-  name: Print Test
-  on: [push]
-  jobs:
-    print:
-      runs-on: ubuntu-latest
-      steps:
-        - run: echo "repo = ${{ env.REPO }}"
+            name: Print Test
+            on: [push]
+            jobs:
+              print:
+                runs-on: ubuntu-latest
+                steps:
+                  - run: echo "repo = ${{ env.REPO }}"
