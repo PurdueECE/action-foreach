@@ -25,5 +25,4 @@ jobs:
             print:
               runs-on: ubuntu-latest
               steps:
-                - run: echo "pat = $SECRETS_PAT"
                 - run: echo "repo = $REPO"
