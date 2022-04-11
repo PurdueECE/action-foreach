@@ -1,8 +1,10 @@
 env:
   REPO: PurdueECE364/prelabs-moffatw
-  REPO_DIR: test_data/run-20220411_142927/PurdueECE364-prelabs-moffatw
+  REPO_DIR: test_data/run-20220411_143853/PurdueECE364-prelabs-moffatw
 name: Print Test
-on: [push]
+on:
+  workflow_run:
+    workflows: [Foreach - Print Test]
 jobs:
   print:
     runs-on: ubuntu-latest
