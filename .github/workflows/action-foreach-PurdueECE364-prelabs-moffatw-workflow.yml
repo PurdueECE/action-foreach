@@ -1,4 +1,4 @@
 env:
   REPO: PurdueECE364/prelabs-moffatw
-  REPO_DIR: action-foreach-runs/run-20220411_013913/PurdueECE364-prelabs-moffatw
-name: Print Test on: [push] jobs: print: runs-on: ubuntu-latest steps: - run: echo "repo = "
+  REPO_DIR: action-foreach-runs/run-20220411_014658/PurdueECE364-prelabs-moffatw
+ name: Print Test on: [push] jobs: print: runs-on: ubuntu-latest steps: - run: echo "repo = "
