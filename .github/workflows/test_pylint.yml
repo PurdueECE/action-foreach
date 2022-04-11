@@ -1,8 +1,8 @@
-name: Print Test
+name: Pylint Test
 on: [workflow_dispatch]
 
 jobs:
-  test_print:
+  pylint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -20,9 +20,14 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
           repos: ${{ steps.get_repos.outputs.repos }}
-          workdir: test_data
           jobs: |
             print:
               runs-on: ubuntu-latest
               steps:
-                - run: echo "repo = $REPO"
+                - uses: actions/checkout@v3
+                  with:
+                    repository: $REPO
+                    token: ${{ secrets.PAT }}
+                - uses: PurdueECE/action-pylint@main
+                  with:
+                    path: Prelab06
