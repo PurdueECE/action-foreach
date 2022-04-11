@@ -1,0 +1,20 @@
+SQL Injection Protection:
+1) Parameterized Statements
+    In the example of an injection attack, the parameterized string and the parameters are not passed to the database separately. 
+    If they are passed separately, then this allows the driver to correctly interpret them and prevent injection attacks. This can be seen in 
+    the printed "Example 3" in main.py under Prelab09/Q3/main.py
+
+2) Input Validation:
+    To ensure valid input, Regular Expression can be used for structured database
+    such as names or secure texts like username or passwords. 
+    In "Example 2" in main.py under Prelab09/Q3/main.py,
+    the expected type for username and password is 'text' however
+    integers are being entered
+
+3) Web Application Firewall (WAF):
+    A WAF operating in front of the web servers monitors the traffic which goes in and out of the web servers.
+    It identifies patterns that constitute a threat.
+    Essentially, it is a barrier put between the web application and the Internet,
+    so in all examples under Prelab09/Q3/main.py, whenever we go to the HTML file to
+    fill the login information, a WAF checks for security
+
