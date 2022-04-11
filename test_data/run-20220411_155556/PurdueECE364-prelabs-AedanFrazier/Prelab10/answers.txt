@@ -1,0 +1,13 @@
+Bucket Names: 
+artifacts.prelab10.appspot.com
+prelab10_cloudbuild
+
+Links:
+
+Home:
+p10-wenrmovjva-ue.a.run.app
+
+Register:
+p10-wenrmovjva-ue.a.run.app/register
+
+Name of service: p10

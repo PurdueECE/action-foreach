@@ -4,9 +4,9 @@ on:
       workflows: [Foreach - Print Test]
 env:
   REPO: PurdueECE364/prelabs-bbelli
-  REPO_DIR: test_data/run-20220411_152620/PurdueECE364-prelabs-bbelli
+  REPO_DIR: test_data/run-20220411_155556/PurdueECE364-prelabs-bbelli
 jobs:
-print:
-  runs-on: ubuntu-latest
-  steps:
-    - run: echo "repo = $REPO"
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "repo = $REPO"

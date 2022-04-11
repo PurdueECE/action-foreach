@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Active Users</title>
+  </head>
+  <body>
+    <p>========================================================================</p>
+    <p>User <%= data.username%></p>
+    <p>========================================================================</p>
+    <p>Posts:</p>
+    <p>========================================================================</p>
+    <table>
+
+        <% for(var i=0; i < data.posts.length; i++) { %>
+           <tr>
+            <p>------------------------------------------------------------------------</p>
+            <p>Title: <%= data.posts[i].title %> | Post ID: <%= data.posts[i].pid %></p>
+            <p>------------------------------------------------------------------------</p>
+            <p><%= data.posts[i].post %></p>
+            <form action="/<%=data.posts[i].pid %>/delete" method="GET" id="form_delete">
+              <input type="submit" class="fadeIn fourth" value="Delete Post">
+            </form>
+            <p>------------------------------------------------------------------------</p>
+            <br>
+           </tr>
+        <% } %>
+        </table>
+  </body>
+
+<br>
+
+</br>
+
+  <!-- Login Form -->
+  <form action="/<%=data.hash%>/create" method="POST" id="form">
+    <input type="submit" class="fadeIn fourth" value="Create Post">
+  </form>
+</html>
