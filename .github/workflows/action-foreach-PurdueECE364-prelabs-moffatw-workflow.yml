@@ -1,4 +1,15 @@
 env:
   REPO: PurdueECE364/prelabs-moffatw
-  REPO_DIR: action-foreach-runs/run-20220411_014658/PurdueECE364-prelabs-moffatw
- name: Print Test on: [push] jobs: print: runs-on: ubuntu-latest steps: - run: echo "repo = "
+  REPO_DIR: test_data/run-20220411_075822/PurdueECE364-prelabs-moffatw
+
+    name: Dircheck Test
+    on: [push]
+    jobs:
+      dircheck:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v3
+          - uses: PurdueECE/action-dircheck@main
+            with:
+              paths: ${{ env.REPO_DIR }}/Prelab08/src
+    
