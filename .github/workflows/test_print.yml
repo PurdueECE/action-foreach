@@ -1,4 +1,4 @@
-name: Foreach - Print Test
+name: Print Test
 on: [workflow_dispatch]
 
 jobs:
