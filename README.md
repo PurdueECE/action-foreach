@@ -22,8 +22,10 @@ jobs:
           workdir: 'action-foreach'
           # Workflow to run for each repo. Should be entered using YAML [literal style](https://yaml.org/spec/1.2.2/#812-literal-style)
           workflow: |
-            name: Foreach Action
-            on: [push]
+            name: Action
+            on:
+              workflow_run:
+                workflows: [Foreach Action]
             jobs:
               print:
                 runs-on: ubuntu-latest
