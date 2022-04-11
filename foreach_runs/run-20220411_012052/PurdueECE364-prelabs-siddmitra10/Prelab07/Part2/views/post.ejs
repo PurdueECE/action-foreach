@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Post</title>
+    </head>
+    <body>
+        <table border="2">
+            <tr>
+                <th>PostID</th>
+                <th>User</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Timestamp</th>
+                <th>Votes</th>
+            </tr>
+            <tr>
+                <td><%=row.postID%></td>
+                <td><%=user.username%></td>
+                <td><%=row.title%></td>
+                <td><%=row.content%></td>
+                <td><%=row.timestamp%></td>
+                <td><%=row.vote%></td>
+            </tr>
+        </table>
+    </body>
