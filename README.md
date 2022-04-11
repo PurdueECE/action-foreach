@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: PurdueECE/action-foreach@main
+      - uses: PurdueECE/action-foreach@v2
         with:
           # Personal access token
           token: ${{ github.token }}
