@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid;
+            text-align: center;
+            padding: 8px;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+<h1>All Employees: </h1>
+<table>
+    <tr>
+        <td>(First Last) Name</td>
+        <td>Position</td>
+    </tr>
+    {% for key,value in data.items() %}
+    <tr>
+        <td>{{value[0]}} {{value[1]}}</td>
+        <td>{{value[2]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

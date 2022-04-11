@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() { 
+                   $("form").submit(function() { 
+                       $("form").post( "/delete/".concat({{ id }}));
+                   }); 
+               }); 
+   </script>
+</head>
+<body>
+
+<form action="/delete" method="GET" id = "form">
+  <label for="fname">First name:</label>
+  <p> {{first_name}} </p><br><br>
+  <label for="lname">Last name:</label>
+  <p> {{last_name}} </p><br><br>
+  <label for="position">Position:</label>
+  <p> {{position}} </p><br><br>
+  <input type="submit" value="Delete">
+</form>
+
+<p>Click on the delete button to delete.</p>
+
+</body>
+</html>
