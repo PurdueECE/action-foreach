@@ -1,2 +1,2 @@
 GitPython == 3.1.27
-actions-toolkit == 0.1.13
+actions-toolkit == 0.1.12
