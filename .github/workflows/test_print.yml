@@ -25,7 +25,7 @@ jobs:
             name: Print Test
             on:
               workflow_run:
-                workflows: [Foreach - Print Test]
+                workflows: [${{ github.action }}]
             jobs:
               print:
                 runs-on: ubuntu-latest
