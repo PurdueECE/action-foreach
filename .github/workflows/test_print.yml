@@ -20,7 +20,6 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
           repos: ${{ steps.get_repos.outputs.repos }}
-          workdir: "foreach_runs"
           workflow: '
 name: Print Test
 on: [push]
@@ -28,4 +27,4 @@ jobs:
   print:
     runs-on: ubuntu-latest
     steps:
-      - run: echo repo: "${{ env.REPO_DIR }}"'
+      - run: echo "repo = ${{ env.REPO }}"'

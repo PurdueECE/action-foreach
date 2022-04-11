@@ -14,7 +14,7 @@ jobs:
   print:
     runs-on: ubuntu-latest
     steps:
-      - run: "echo repo: ${{ env.REPO_DIR }}"
+      - run: "echo repo: ${{ env.REPO }}"
 """
     })
 def test_print():
