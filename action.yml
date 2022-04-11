@@ -2,6 +2,9 @@ name: "action-foreach"
 description: "Run GitHub action on a list of repos."
 author: "Purdue ECE"
 inputs:
+  token:
+    description: "Personal access token."
+    default: ${{ github.token }}
   workdir:
     description: "Working directory to clone repos to."
     default: "action-foreach-runs"

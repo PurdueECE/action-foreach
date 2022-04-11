@@ -25,18 +25,19 @@ def run_foreach():
         # Clone repo
         if os.path.exists(repo_dir):
             shutil.rmtree(repo_dir)
-        Repo.clone_from(f'https://{os.environ["GITHUB_TOKEN"]}:x-oauth-basic@github.com/{owner}/{name}.git', repo_dir)
+        Repo.clone_from(f'https://{core.get_input("token")}:x-oauth-basic@github.com/{owner}/{name}.git', repo_dir)
         shutil.rmtree(f'{repo_dir}/.git') # deinit as git repo so it is pushed to GH properly
     # Commit to remote
     monorepo = Repo('.')
     monorepo.git.add(workdir)
     monorepo.git.add(wf_dir)
-    monorepo.index.commit(f'{os.environ["GITHUB_ACTION"]} - {datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")}')
+    monorepo.index.commit(f'{core.get_input("token")} - {datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")}')
     monorepo.git.push('--set-upstream', monorepo.remote().name, 'master', '--force')
 
 def env_setup():
     if os.environ.get('GITHUB_EVENT', '') == 'push':
         raise Exception('Refusing to run on push event to avoid recursive runs.')
+    os.environ.setdefault('INPUT_TOKEN', os.environ.get('GITHUB_TOKEN', ''))
 
 def main():
     try:
