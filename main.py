@@ -21,7 +21,7 @@ def run_foreach():
             f.write(f'env:\n')
             f.write(f'  REPO: {full_name}\n')
             f.write(f'  REPO_DIR: {repo_dir}\n')
-            f.write(f'{core.get_input("workflow", trim_whitespace = False)}\n')
+            f.write(f'{core.get_input("workflow", trimWhitespace = False)}\n')
         # Clone repo
         if os.path.exists(repo_dir):
             shutil.rmtree(repo_dir)
