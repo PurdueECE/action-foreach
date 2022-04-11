@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<style>
+    table, th, td {
+    border: 1px solid black;
+  }
+</style>
+
+<table>
+<tr>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>ID</td>
+    <td>Position</td>
+</tr>
+{% for tuple, key in data.items() %}
+    <tr>
+        {% for t in key %}   
+        <td>{{t}}</td>
+        {% endfor %}
+    </tr>
+{% endfor %}
+</table>
+<html>

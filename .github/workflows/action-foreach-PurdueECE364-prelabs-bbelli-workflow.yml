@@ -4,12 +4,9 @@ on:
       workflows: [Print Test]
 env:
   REPO: PurdueECE364/prelabs-bbelli
-  REPO_DIR: test_data/run-20220411_174418/PurdueECE364-prelabs-bbelli
+  REPO_DIR: test_data/run-20220411_175409/PurdueECE364-prelabs-bbelli
 jobs:
   print:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        repository: $REPO
-        token: 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
-      - run: echo "repo = $GITHUB_REPOSITORY"
+      - run: echo "repo = $REPO"
