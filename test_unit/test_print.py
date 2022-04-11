@@ -7,11 +7,10 @@ from unittest import mock
   "GITHUB_REF_NAME": "main",
   "INPUT_WORKDIR": "test_data",
   "INPUT_REPOS": "PurdueECE364/prelabs-moffatw",#,PurdueECE364/prelabs-bbelli,PurdueECE364/prelabs-SOGIST1",
-  "INPUT_JOBS": """
-  print:
-    runs-on: ubuntu-latest
-    steps:
-      - run: "echo repo: ${{ env.REPO }}"
+  "INPUT_JOBS": """print:
+  runs-on: ubuntu-latest
+  steps:
+    - run: echo "repo = $REPO"
 """
     })
 def test_print():

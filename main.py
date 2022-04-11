@@ -26,7 +26,7 @@ def run_foreach():
             f.write(f'  REPO: {full_name}\n')
             f.write(f'  REPO_DIR: {repo_dir}\n')
             f.write(f'jobs:\n')
-            f.write(f'{os.environ["INPUT_JOBS"]}\n')
+            f.writelines(map(lambda x: f'  {x}\n', os.environ["INPUT_JOBS"].splitlines()))
         # Clone repo
         if os.path.exists(repo_dir):
             shutil.rmtree(repo_dir)
