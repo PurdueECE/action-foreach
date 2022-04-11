@@ -1,0 +1,17 @@
+name: Pylint Test - PurdueECE364-prelabs-PadNim14
+on:
+  workflow_run:
+      workflows: [Pylint Test]
+env:
+  REPO: PurdueECE364/prelabs-PadNim14
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: $REPO
+          token: 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
+      - uses: PurdueECE/action-pylint@main
+        with:
+          path: Prelab06
