@@ -9,7 +9,9 @@ from unittest import mock
   "INPUT_REPOS": "PurdueECE364/prelabs-moffatw",#,PurdueECE364/prelabs-bbelli,PurdueECE364/prelabs-SOGIST1",
   "INPUT_WORKFLOW": """
 name: Print Test
-on: [push]
+on:
+  workflow_run:
+    workflows: [${{ github.workflow }}]
 jobs:
   print:
     runs-on: ubuntu-latest
