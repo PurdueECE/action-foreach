@@ -1,0 +1,21 @@
+User input: (username, password)
+-----Examples-----
+Example 1:
+Input: (" or ""=", " or ""=")
+Output: SELECT * FROM user_info WHERE username ="" or ""="" AND password ="" or ""=""
+
+Example 2:
+Input: (123; DROP TABLE user_info, " or ""=")
+Output: SELECT * FROM user_info WHERE username ="123; DROP TABLE user_info" AND password ="" or ""=""
+
+Example 3:
+Input: (123 OR 1=1, 123 OR 1=1)
+Output: SELECT * FROM user_info WHERE username ="123 OR 1=1" AND password ="123 OR 1=1"
+
+Example 4:
+Input: (123 UNION SELECT username, password FROM user_info, 123 OR 1=1)
+Output: SELECT * FROM user_info WHERE username ="123 UNION SELECT username, password FROM user_info" AND password ="123 OR 1=1"
+
+Example 5:
+Input: (username' OR 1=1, password' OR 1=1)
+Output: SELECT * FROM user_info WHERE username ="username' OR 1=1" AND password ="password' OR 1=1"
