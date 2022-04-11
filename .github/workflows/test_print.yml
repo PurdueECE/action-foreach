@@ -23,7 +23,9 @@ jobs:
           workdir: test_data
           workflow: |
             name: Print Test
-            on: [push]
+            on:
+              workflow_run:
+                workflows: [Foreach - Print Test]
             jobs:
               print:
                 runs-on: ubuntu-latest
