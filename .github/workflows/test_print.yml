@@ -21,7 +21,7 @@ jobs:
           token: ${{ secrets.PAT }}
           repos: PurdueECE364/prelabs-moffatw
           workdir: test_data
-          workflow: |
+          workflow: >
   name: Print Test
   on: [push]
   jobs:

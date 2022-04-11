@@ -1,6 +1,6 @@
 env:
   REPO: PurdueECE364/prelabs-moffatw
-  REPO_DIR: test_data/run-20220411_081957/PurdueECE364-prelabs-moffatw
+  REPO_DIR: test_data/run-20220411_082336/PurdueECE364-prelabs-moffatw
 
 name: Dircheck Test
 on: [push]
