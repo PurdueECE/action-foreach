@@ -1,6 +1,6 @@
 env:
   REPO: PurdueECE364/prelabs-moffatw
-  REPO_DIR: test_data/run-20220411_124932/PurdueECE364-prelabs-moffatw
+  REPO_DIR: test_data/run-20220411_125119/PurdueECE364-prelabs-moffatw
 name: Print Test
 on: [push]
 jobs:
