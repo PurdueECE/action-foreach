@@ -1,4 +1,0 @@
-env:
-  REPO: PurdueECE364/prelabs-adrianchen8662
-  REPO_DIR: action-foreach-runs/run-20220411_012959/PurdueECE364-prelabs-adrianchen8662
-name: Print Test on: [push] jobs: print: runs-on: ubuntu-latest steps: - run: echo "repo = "
