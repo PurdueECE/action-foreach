@@ -11,8 +11,8 @@ inputs:
   repos:
     description: "List of repos to run action for."
     required: true
-  workflow:
-    description: "Workflow YAML file contents to run on each repo."
+  jobs:
+    description: "Jobs to run in each repo (name and event trigger are auto-generated)."
     required: true
 runs:
   using: "docker"

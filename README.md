@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: PurdueECE/action-foreach@master
+      - uses: PurdueECE/action-foreach@main
         with:
           # Personal access token
           token: ${{ github.token }}
@@ -20,17 +20,12 @@ jobs:
           repos: org/repo-1,org/repo-2,org/repo-3
           # Working directory to clone repos to. Defaults to 'action-foreach'.
           workdir: 'action-foreach'
-          # Workflow to run for each repo. Should be entered using YAML [literal style](https://yaml.org/spec/1.2.2/#812-literal-style)
-          workflow: |
-            name: Action
-            on:
-              workflow_run:
-                workflows: [${{ github.workflow }}]
-            jobs:
-              print:
-                runs-on: ubuntu-latest
-                steps:
-                  - run: echo "repo = $REPO"
+          # Jobs to run for each repo. Should be entered using YAML [literal style](https://yaml.org/spec/1.2.2/#812-literal-style)
+          jobs: |
+            print:
+              runs-on: ubuntu-latest
+              steps:
+                - run: echo "repo = $REPO"
             pylint:
               runs-on: ubuntu-latest
               steps:
@@ -42,15 +37,6 @@ jobs:
 The `REPO` environment variable is set in each repo's workflow file. Its format is `owner/repo` (see example above).
 
 The `REPO_DIR` environment variable is set in each repo's workflow file to be the subdirectory where the individual repo is located. This variable should be used if any paths within each repo need to be referenced in its workflow (see example above).
-
-## Important Notes
-It is recommended to set the trigger in the `workflow` input to `on: workflow_run` so that it will run in response to the action-foreach run (see example above).
-
-It is NOT recommended to set the trigger for the workflow that calls `action-foreach` to be `on: push`. This is because an infinite recursion will occur: the foreach action will run on a push which will push a new commit with the generated workflows that will again cause the foreach action to be run.
-
-To avoid the above scenario, this action will refuse to run if the event that triggered it is a `push`.
-
-Therefore, it is recommended to set the trigger for this action to be either `on: workflow_dispatch` or `on: schedule`. Please see the [documentation](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows) for more details.
 
 
 # Testing
