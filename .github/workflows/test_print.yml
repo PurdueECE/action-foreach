@@ -25,4 +25,7 @@ jobs:
             print:
               runs-on: ubuntu-latest
               steps:
-                - run: echo "repo = $REPO"
+                - uses: actions/checkout@v3
+                  repository: $REPO
+                  token: ${{ secrets.PAT }}
+                - run: echo "repo = $GITHUB_REPOSITORY"
