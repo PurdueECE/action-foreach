@@ -31,7 +31,7 @@ def run_foreach():
     monorepo = Repo('.')
     monorepo.git.add(workdir)
     monorepo.git.add(wf_dir)
-    monorepo.index.commit(f'{os.environ["GITHUB_ACTION"]} - {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
+    monorepo.index.commit(f'{os.environ["GITHUB_ACTION"]} - {datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")}')
     monorepo.git.push('--set-upstream', monorepo.remote().name, 'master', '--force')
 
 def env_setup():
