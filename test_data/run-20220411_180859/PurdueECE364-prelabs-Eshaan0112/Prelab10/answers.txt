@@ -1,0 +1,8 @@
+# Buckets
+artifacts.prelab10-345417.appspot.com
+prelab10-345417_cloudbuild
+
+# APP URL
+https://prelab10-kf57hgcsnq-uc.a.run.app
+
+

@@ -1,12 +1,18 @@
-name: Print Test - PurdueECE364-prelabs-AaronFritz01
+name: Dircheck Test - PurdueECE364-prelabs-AaronFritz01
 on:
   workflow_run:
-      workflows: [Print Test]
+      workflows: [Dircheck Test]
 env:
   REPO: PurdueECE364/prelabs-AaronFritz01
-  REPO_DIR: test_data/run-20220411_175409/PurdueECE364-prelabs-AaronFritz01
+  REPO_DIR: test_data/run-20220411_180859/PurdueECE364-prelabs-AaronFritz01
 jobs:
-  print:
+  test_dircheck:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "repo = $REPO"
+      - uses: actions/checkout@v3
+        with:
+          repository: $REPO
+          token: $SECRETS_PAT
+      - uses: PurdueECE/action-dircheck@main
+        with:
+          paths: Prelab06
