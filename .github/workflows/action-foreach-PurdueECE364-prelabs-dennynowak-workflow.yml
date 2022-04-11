@@ -4,15 +4,12 @@ on:
       workflows: [Dircheck Test]
 env:
   REPO: PurdueECE364/prelabs-dennynowak
-  REPO_DIR: test_data/run-20220411_180859/PurdueECE364-prelabs-dennynowak
+  REPO_DIR: test_data/run-20220411_182137/PurdueECE364-prelabs-dennynowak
 jobs:
   test_dircheck:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          repository: $REPO
-          token: $SECRETS_PAT
       - uses: PurdueECE/action-dircheck@main
         with:
-          paths: Prelab06
+          paths: $REPO_DIR/Prelab06

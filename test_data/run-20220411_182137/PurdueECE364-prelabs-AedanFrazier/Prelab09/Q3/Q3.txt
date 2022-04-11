@@ -1,0 +1,5 @@
+You could protect your databases from sql injections by recognizing any inputs with 
+quotation marks as appart of the string instead of concluding or beginning a string.
+Another way to protect your code from sql injections is by not directly inputing user inputs
+into commands and to compare them to active entries in the database.
+

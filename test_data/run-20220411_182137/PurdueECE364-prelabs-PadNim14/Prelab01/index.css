@@ -1,0 +1,133 @@
+body {
+  margin: 20px 40px;
+}
+
+p {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  margin-top: 16px;
+}
+
+/*--- This is the CSS class for the green rectangular blocks. Note that it uses display: flex ---*/
+.wrapper {
+  display: flex;
+  height: 60px;
+  background-color: green;
+  margin-bottom: 20px;
+}
+
+/*--- flex: 1 makes it so that the div takes up all available space left in the parent element ---*/
+.redExample {
+  flex: 1;
+  background-color: red;
+}
+
+/*--- Since both .redExample and .blueExample have flex: 1, they will take up an equal amount of space because they meet in the middle ---*/
+.blueExample {
+  flex: 1;
+  background-color: blue;
+}
+
+/*--- flex-direction: row-reverse orders all child elements starting from right to left ---*/
+.emptyExample2 {
+  display: flex;
+  flex: 1;
+  flex-direction: row-reverse;
+}
+
+.blueExample2 {
+  width: 80px;
+  background-color: blue;
+}
+
+/* TODO: Add CSS for the rest of your solution below */
+.row3red {
+  background-color: red;
+  width: 10%;
+  position: relative;
+}
+
+.row3blue {
+  background-color: blue;
+  width: 10%;
+  margin-left: auto;
+}
+
+.row4red {
+  content: '';
+  background: red;
+  /* position: absolute; */
+  flex-grow: 5;
+}
+
+.row4blue{
+  content: '';
+  background: blue;
+  width: 15%;
+  flex-grow: 0;
+  
+}
+
+.row5 {
+  background-color: red;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  height: 40px;
+  width: 40px;
+}
+
+.row6blue {
+  background-color: blue;
+  width: 10%;
+}
+
+.row6redleft {
+  background-color: red;
+  width: 50%;
+}
+
+.row6redright {
+  background-color: red;
+  width: 50%;
+}
+
+.row7red {
+  background-color: red;
+  width: 20%;
+}
+.row7blue {
+  background-color: blue;
+  width: 100%;
+  position: relative;
+}
+.row7green {
+  background-color: green;
+  width: 100%;
+  height: 30%;
+  position: absolute;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+}
+
+
+.row8a{
+  background-color: orange;
+  width: 60px;
+  height: 30px;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.row9yellow{
+  background-color: orange;
+  width: 100%;
+}
+
+.row9green {
+  background-color: green;
+  width: 10%;
+  position: relative;
+}
