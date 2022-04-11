@@ -1,0 +1,11 @@
+Denny Nowak Prelab 10 
+
+Buckets:
+artifacts.prelab10dn.appspot.com
+prelab10dn_cloudbuild
+
+URL:
+https://prelab10tag6-4gch6uh4hq-uc.a.run.app/register
+
+Name of Service:
+prelab10tag6

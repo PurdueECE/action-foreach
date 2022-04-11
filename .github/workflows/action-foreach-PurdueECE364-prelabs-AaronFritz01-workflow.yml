@@ -1,0 +1,12 @@
+env:
+  REPO: PurdueECE364/prelabs-AaronFritz01
+  REPO_DIR: test_data/run-20220411_144219/PurdueECE364-prelabs-AaronFritz01
+name: Print Test
+on:
+  workflow_run:
+    workflows: [Foreach - Print Test]
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "repo = $REPO"
