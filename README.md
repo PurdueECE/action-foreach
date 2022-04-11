@@ -4,31 +4,42 @@ This action will run a specified action on a list of repos. It accomplishes this
 
 # Usage
 ```yaml
-- uses: PurdueECE/action-foreach@master
-  id: run_repos
-  with:
-    # Personal access token
-    token: ${{ github.token }}
-    # Working directory to clone repos to. Defaults to 'action-foreach'.
-    workdir: 'action-foreach'
-    # List of repos to run action for.
-    repos: org/repo-1,org/repo-2,org/repo-3
-    # Workflow to run in each repo. Should be entered as string.
-    workflow: '
-name: Pylint Action
-on: push
+name: Foreach Action
+on: [workflow_dispatch]
+
 jobs:
-  pylint:
+  foreach:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: PurdueECE/action-pylint@main
+      - uses: PurdueECE/action-foreach@master
         with:
-          path: ${{ env.REPO_DIR }}/Prelab06'
+          # Personal access token
+          token: ${{ github.token }}
+          # List of repos to run action for.
+          repos: org/repo-1,org/repo-2,org/repo-3
+          # Working directory to clone repos to. Defaults to 'action-foreach'.
+          workdir: 'action-foreach'
+          # Workflow to run for each repo. Should be entered using YAML [literal style](https://yaml.org/spec/1.2.2/#812-literal-style)
+          workflow: |
+            name: Foreach Action
+            on: [push]
+            jobs:
+              print:
+                runs-on: ubuntu-latest
+                steps:
+                  - run: echo "repo = $REPO"
+            pylint:
+              runs-on: ubuntu-latest
+              steps:
+                - uses: actions/checkout@v3
+                - uses: PurdueECE/action-pylint@main
+                  with:
+                    path: $REPO_DIR/Prelab06'
 ```
 The `REPO` environment variable is set in each repo's workflow file. Its format is `owner/repo`.
 
-The `REPO_DIR` environment variable is set in each repo's workflow file to be the subdirectory where the individual repo is located. This variable should be used if any paths within each repo need to be referenced in its workflow (see above example).
+The `REPO_DIR` environment variable is set in each repo's workflow file to be the subdirectory where the individual repo is located. This variable should be used if any paths within each repo need to be referenced in its workflow.
 
 ## Important Notes
 It is recommended to set the trigger in the `workflow` input to `on: push`, otherwise the generated workflows will not run immediately.
