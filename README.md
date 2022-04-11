@@ -7,12 +7,14 @@ This action will run a specified action on a list of repos. It accomplishes this
 - uses: PurdueECE/action-foreach@master
   id: run_repos
   with:
-    # Working directory to clone repos to. Defaults to ./
-    workdir: ./
+    # Personal access token
+    token: ${{ github.token }}
+    # Working directory to clone repos to. Defaults to 'action-foreach'.
+    workdir: 'action-foreach'
     # List of repos to run action for.
     repos: org/repo-1,org/repo-2,org/repo-3
-    # Workflow to run in each repo.
-    workflow:
+    # Workflow to run in each repo. Should be entered as string.
+    workflow: '
 name: Pylint Action
 on: push
 jobs:
@@ -22,7 +24,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: PurdueECE/action-pylint@main
         with:
-          path: ${{ env.REPO_DIR }}/Prelab06
+          path: ${{ env.REPO_DIR }}/Prelab06'
 ```
 The `REPO` environment variable is set in each repo's workflow file. Its format is `owner/repo`.
 
