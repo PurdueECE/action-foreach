@@ -1,7 +1,0 @@
-name of buckets:
-artifacts.christine-fang-ece39595.appspot.com 
-christine-fang-ece39595_cloudbuild 
-
-url: https://project1-3bsc3hm6ca-ue.a.run.app/register
-
-name of service: project1

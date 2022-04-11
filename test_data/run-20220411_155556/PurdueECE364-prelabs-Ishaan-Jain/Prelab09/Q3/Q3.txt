@@ -1,6 +1,0 @@
-1) The best method to achieve it is to utilize stored procedures, which are SQL instructions that are structured in such a manner that they can be reused by the programmer instead of having to write the command over and over again. This allows the commands to be automatically parametrized while also preventing the user from having too much access.
-
-2)Input validation is one method of preventing SQL injection attacks.
-You can achieve this by evaluating the string that the user has entered with regex. If a user's string input range is limited, such as when using a drop-down list or radio buttons, you can simply utilize those relevant strings to validate the strings, which you can accomplish in a switch case or if-else branch.
-
-3)The use of parametrized queries is another option. This is merely a fancy way of saying that the computer will compile the SQL query to ensure that it is actual code rather than commands that will unsecurely change the data. This is accomplished by automatically quoting the data to prevent a SQL injection attack.

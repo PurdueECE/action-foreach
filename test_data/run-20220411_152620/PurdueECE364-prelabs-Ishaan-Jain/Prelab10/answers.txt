@@ -1,4 +1,0 @@
-https://console.cloud.google.com/storage/browser/artifacts.prelab10-345503.appspot.com;tab=objects?forceOnBucketsSortingFiltering=false&project=prelab10-345503
-https://console.cloud.google.com/storage/browser/prelab10-345503_cloudbuild;tab=objects?forceOnBucketsSortingFiltering=false&project=prelab10-345503
-
-https://wassup-rchzyj6cvq-ue.a.run.app/register

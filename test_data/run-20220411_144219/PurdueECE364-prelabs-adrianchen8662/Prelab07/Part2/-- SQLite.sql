@@ -1,2 +1,0 @@
--- SQLite
-DELETE from USERS

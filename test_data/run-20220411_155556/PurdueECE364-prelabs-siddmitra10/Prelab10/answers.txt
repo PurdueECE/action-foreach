@@ -1,4 +1,0 @@
-Buckets:    artifacts.prelab10-345501.appspot.com
-            prelab10-345501_cloudbuild
-            
-URL:        https://init10-7mprnb2b7a-ue.a.run.app

@@ -1,8 +1,0 @@
-One way to sanitize inputs is to pass variables as named parameters.
-Ex: cursor.execute("SELECT firstname, lastname from users WHERE id = %d'",(username,))
-
-One way is to use SQL Composition
-Ex: Psycopg
-
-One way is to use safe query parameters through a different module to compose SQL queries
-Ex: cursor.execute("""SELECT firstname, lastname from users WHERE id = %(id)s""",{'id'}=id)
