@@ -26,9 +26,6 @@ jobs:
               runs-on: ubuntu-latest
               steps:
                 - uses: actions/checkout@v3
-                  with:
-                    repository: $REPO
-                    token: $SECRETS_PAT
                 - uses: PurdueECE/action-dircheck@main
                   with:
-                    paths: Prelab06
+                    paths: $REPO_DIR/Prelab06
