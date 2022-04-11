@@ -1,0 +1,4 @@
+env:
+  REPO: PurdueECE364/prelabs-adrianchen8662
+  REPO_DIR: foreach_runs/run-20220411_012052/PurdueECE364-prelabs-adrianchen8662
+ name: Print Test on: [push] jobs: print: runs-on: ubuntu-latest steps: - run: echo repo: ""

@@ -1,0 +1,9 @@
+---Buckets---
+1648434481.516218-58c9a8baa9fc4ffa9d5282a28022fd15
+1648434985.313491-f056bb37cc7f47d78a34c52ff617e3c9
+
+---URL---
+https://taggy-knt33lx4ia-ue.a.run.app/
+
+---Service---
+taggy

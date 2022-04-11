@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ first_name }} {{ last_name }} Info</title>
+</head>
+<body>
+    <h3>Name: </h3><h1>{{ first_name }} {{ last_name }}</h1>
+    <h3>Position: </h3><h1>{{ position }}</h1>
+    <form action="/delete" method="POST">
+        <button name="id" value="{{ id }}">Delete</button>
+    </form>
+</body>
+</html>

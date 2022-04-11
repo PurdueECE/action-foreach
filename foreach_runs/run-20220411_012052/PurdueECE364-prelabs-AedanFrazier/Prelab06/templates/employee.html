@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<table>
+{% for key, value in data.items() %}
+    <tr>
+    <td>{{key}}</td>
+    <td>{{value}}</td>
+    </tr>
+{% endfor %}
+</table>
+
+<form action="/delete" method="POST" id="form">
+    {% for key, value in data.items() %}
+        <input type="hidden" name={{key}} id={{key}} value={{value}}>
+    {% endfor %}
+    <input type="submit" value="Delete">
+
+</form>
+<html>
