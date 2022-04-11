@@ -1,0 +1,5 @@
+# The folder "build" and any of it's contents
+build/
+
+# Text files
+*.txt

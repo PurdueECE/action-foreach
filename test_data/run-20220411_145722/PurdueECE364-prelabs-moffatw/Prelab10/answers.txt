@@ -1,0 +1,9 @@
+Bucket Names:
+artifacts.ece39395-prelab10.appspot.com
+ece39395-prelab10_cloudbuild
+
+URL:
+https://test-l72skz7zta-uc.a.run.app
+
+Service Name:
+test
