@@ -25,7 +25,7 @@ jobs:
             name: Print Test
             on:
               workflow_run:
-                workflows: [${{ github.action }}]
+                workflows: [${{ github.workflow }}]
             jobs:
               print:
                 runs-on: ubuntu-latest

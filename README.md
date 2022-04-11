@@ -25,7 +25,7 @@ jobs:
             name: Action
             on:
               workflow_run:
-                workflows: [Foreach Action]
+                workflows: [${{ github.workflow }}]
             jobs:
               print:
                 runs-on: ubuntu-latest
@@ -39,12 +39,12 @@ jobs:
                   with:
                     path: $REPO_DIR/Prelab06'
 ```
-The `REPO` environment variable is set in each repo's workflow file. Its format is `owner/repo`.
+The `REPO` environment variable is set in each repo's workflow file. Its format is `owner/repo` (see example above).
 
-The `REPO_DIR` environment variable is set in each repo's workflow file to be the subdirectory where the individual repo is located. This variable should be used if any paths within each repo need to be referenced in its workflow.
+The `REPO_DIR` environment variable is set in each repo's workflow file to be the subdirectory where the individual repo is located. This variable should be used if any paths within each repo need to be referenced in its workflow (see example above).
 
 ## Important Notes
-It is recommended to set the trigger in the `workflow` input to `on: push`, otherwise the generated workflows will not run immediately.
+It is recommended to set the trigger in the `workflow` input to `on: workflow_run` so that it will run in response to the action-foreach run (see example above).
 
 It is NOT recommended to set the trigger for the workflow that calls `action-foreach` to be `on: push`. This is because an infinite recursion will occur: the foreach action will run on a push which will push a new commit with the generated workflows that will again cause the foreach action to be run.
 
