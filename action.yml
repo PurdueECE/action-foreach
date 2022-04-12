@@ -7,7 +7,7 @@ inputs:
     default: ${{ github.token }}
   workdir:
     description: "Working directory to clone repos to."
-    default: "action-foreach-runs"
+    default: "."
   reuse:
     description: "Re-use repos if they exist in workdir."
     default: false

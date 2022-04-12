@@ -18,8 +18,8 @@ jobs:
           token: ${{ github.token }}
           # List of repos to run action for.
           repos: org/repo-1,org/repo-2,org/repo-3
-          # Working directory to clone repos to. Defaults to 'action-foreach'.
-          workdir: 'action-foreach'
+          # Working directory to clone repos to. Defaults to .
+          workdir: 'action-foreach-runs'
           # Re-use repos if they exist in workdir.
           reuse: false
           # Jobs to run for each repo. Should be entered using YAML [literal style](https://yaml.org/spec/1.2.2/#812-literal-style)
