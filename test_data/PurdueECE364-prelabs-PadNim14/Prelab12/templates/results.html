@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  width: 50%;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h1>Directions and Nearby Restaurants</h1>
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+<!-- Auto width -->
+<form action="/download">
+  <a href="{{url_for('download')}}">Download</a>
+
+</form>
+<br>
+<h2>Directions</h2>
+<table>
+      <td>Instruction</td>
+      <td>Distance</td>
+
+{% for key in directions %}
+  <tr>
+    <td>{{key[1]}}</td>
+    <td>{{key[0]}}</td>
+  </tr>
+{% endfor %}
+</table>
+<br>
+<br>
+<br>
+<h2>Restaurants</h2>
+<table>
+    <td>Name</td>
+    <td>Rating</td>
+
+{% for key in resDict %}
+<tr>
+  <td>{{key}}</td>
+  <td>{{resDict[key]}}</td>
+</tr>
+{% endfor %}
+</table>
+
+
+
+
+</body>
+</html>

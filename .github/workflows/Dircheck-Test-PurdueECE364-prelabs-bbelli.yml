@@ -1,0 +1,15 @@
+name: Dircheck Test - PurdueECE364-prelabs-bbelli
+on:
+  workflow_run:
+      workflows: [Dircheck Test]
+env:
+  REPO: PurdueECE364/prelabs-bbelli
+  REPO_DIR: test_data/PurdueECE364-prelabs-bbelli
+jobs:
+  test_dircheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: PurdueECE/action-dircheck@main
+        with:
+          paths: $REPO_DIR/Prelab06

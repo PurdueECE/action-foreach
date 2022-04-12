@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+
+<form action="/download" method="POST" id="form">
+    <table>
+        ##################################################################<br>
+        DIRECTIONS:<br>
+        ##################################################################<br>
+        <tr>
+            <th>Instruction</th>
+            <th>Distance</th>
+        </tr>
+        {% for tuple, key in dirs.items() %}
+            <tr>
+                {% for t in key %}  
+                <td>{{t}}</td>   
+                {% endfor %}           
+            </tr>
+        {% endfor %}
+    
+    </table>
+        <br>
+        <br>
+        <br>
+        <br>
+    
+    <table>
+        ##################################################################<br>    
+        FOOD LOCATIONS:<br>
+        ##################################################################<br>
+    
+        <tr>
+            <th>Name</th>
+            <th>Rating</th>
+        </tr>
+        {% for tuple, key in places.items() %}
+            <tr>
+                <td>{{tuple}}</td>
+                <td>{{key}}</td>
+            </tr>
+        {% endfor %}
+       
+    
+    </table>
+
+    <p>
+        <input type="submit" value="Download TSV" id="download" align="center">
+    </p>
+</form>
+
+</html>
