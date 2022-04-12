@@ -6,6 +6,7 @@ from unittest import mock
   "GITHUB_WORKFLOW": "Foreach Pylint",
   "GITHUB_REF_NAME": "main",
   "INPUT_WORKDIR": "test_data",
+  "INPUT_REUSE": 'false',
   "INPUT_REPOS": "PurdueECE364/prelabs-moffatw",#,PurdueECE364/prelabs-bbelli,PurdueECE364/prelabs-SOGIST1",
   "INPUT_JOBS": """pylint:
   runs-on: ubuntu-latest

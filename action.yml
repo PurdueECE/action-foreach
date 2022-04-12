@@ -8,6 +8,9 @@ inputs:
   workdir:
     description: "Working directory to clone repos to."
     default: "action-foreach-runs"
+  reuse:
+    description: "Re-use repos if they exist."
+    default: false
   repos:
     description: "List of repos to run action for."
     required: true
