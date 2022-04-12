@@ -1,6 +1,0 @@
-# Build and its contents
-build/
-build/*
-
-# all .txt files
-*.txt

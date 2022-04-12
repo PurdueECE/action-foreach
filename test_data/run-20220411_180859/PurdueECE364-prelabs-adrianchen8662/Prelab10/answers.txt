@@ -1,7 +1,0 @@
-Cloud Storage:
-artifacts.braided-haiku-345619.appspot.com
-braided-haiku-345619_cloudbuild
-
-URL: https://prelab10-bymkxpdw3q-uc.a.run.app/
-
-Service: prelab10

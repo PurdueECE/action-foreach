@@ -1,4 +1,0 @@
-ece39595-pl10_cloudbuild
-artifacts.ece39595-pl10.appspot.com
-
-https://prelab10-fj3amxmneq-ue.a.run.app/
