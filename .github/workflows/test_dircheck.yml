@@ -21,6 +21,7 @@ jobs:
           token: ${{ secrets.PAT }}
           repos: ${{ steps.get_repos.outputs.repos }}
           workdir: test_data
+          reuse: true
           jobs: |
             test_dircheck:
               runs-on: ubuntu-latest
