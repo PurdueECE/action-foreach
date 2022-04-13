@@ -16,7 +16,6 @@ def run_foreach():
         owner, name = full_name.split('/')
         repo_prefix = f'{owner}-{name}'
         repo_dir = f'{workdir}/{repo_prefix}'
-        os.makedirs(repo_dir, exist_ok = True)
         # Create workflow file
         with open(f'{wf_dir}/{wf_prefix}-{repo_prefix}.yml', "w") as f:
             f.write(f'name: {os.environ["GITHUB_WORKFLOW"]} - {repo_prefix}\n')
