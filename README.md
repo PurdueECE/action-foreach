@@ -1,6 +1,8 @@
+# Deprecation Notice
+This repository has been deprecated because [build matrices](https://docs.github.com/en/github-ae@latest/actions/using-jobs/using-a-matrix-for-your-jobs) can accomplish this function. See [PurdueECE/action-find-repos](https://github.com/PurdueECE/action-find-repos#run-job-on-each-repository) for an example on how to retrieve a list of repos and run a job on each one.
+
 # Action Foreach
 This action will run a specified action on a list of repos. It accomplishes this by cloning the specified repos and generating workflow files for each repo whose contents are specified in this action.
-
 
 # Usage
 ```yaml
